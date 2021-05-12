@@ -2,17 +2,18 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
-import { Tab2Screen } from '../screens/Tab2Screen';
 import { StackNavigator } from './StackNavigator';
 import { colors } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
 import { TopTab } from './TopTab';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
     return Platform.OS === 'ios' 
             ? <TabsIOS /> 
             : <TabsAndroid />
 } 
+
 
 const BottomTabAndroid = createMaterialBottomTabNavigator();
 
@@ -29,19 +30,19 @@ const TabsAndroid = () => {
 
                 switch (route.name) {
                     case 'Tab1Screen':
-                        iconName = 'T1'
+                        iconName = 'home-outline'
                         break;
                     case 'TopTab':
-                        iconName = 'T2'
+                        iconName = 'stop-outline'
                         break;
                     case 'StackNavigator':
-                        iconName = 'St'
+                        iconName = 'file-tray-stacked-outline'
                         break;
                     default:
                         break;
                 }
 
-                return <Text style={{ color }}> { iconName } </Text>
+                return <Text> <Icon name={ iconName } size={20} color={colors.primary} />   </Text>
             }
         })}
     >
@@ -79,19 +80,19 @@ const TabsIOS = () => {
 
                 switch (route.name) {
                     case 'Tab1Screen':
-                        iconName = 'T1'
+                        iconName = 'home-outline'
                         break;
                     case 'TopTab':
-                        iconName = 'T2'
+                        iconName = 'stop-outline'
                         break;
                     case 'StackNavigator':
-                        iconName = 'St'
+                        iconName = 'file-tray-stacked-outline'
                         break;
                     default:
                         break;
                 }
 
-                return <Text style={{ color }}> { iconName } </Text>
+                return <Text> <Icon name={ iconName } size={20} color={colors.primary} />   </Text>
             }
         })}
     >

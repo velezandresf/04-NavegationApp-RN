@@ -9,7 +9,8 @@ import {
 import { SettingScreen } from '../screens/SettingScreen';
 import { Text, useWindowDimensions, View } from 'react-native';
 import { Image, TouchableOpacity } from 'react-native';
-import { styles } from '../theme/appTheme';
+import { colors, styles } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { Tabs } from './Tabs';
 
 const Drawer = createDrawerNavigator();
@@ -45,18 +46,31 @@ const SelfMenu = ( {navigation}: DrawerContentComponentProps<DrawerContentOption
 
             {/* Menu options */}
             <View style={styles.menuContainer}>
-                <TouchableOpacity 
-                    style={styles.menuButton}
-                    onPress= {() => navigation.navigate('Tabs')}
-                >
-                    <Text style={styles.menuText}>Navigation</Text>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    style={styles.menuButton}
-                    onPress= {() => navigation.navigate('SettingScreen')}
-                >
-                    <Text style={styles.menuText}>Settings</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={{
+                            ...styles.menuButton,
+                            flexDirection: 'row'
+                        }}
+                        onPress= {() => navigation.navigate('Tabs')}
+                    >
+                        <Text><Icon name="compass-outline" size={23} color={'black'} /></Text>
+                        <Text style={styles.menuText}>  Navigation</Text>
+                    </TouchableOpacity>
+
+
+
+                
+                    <TouchableOpacity 
+                        style={{
+                            ...styles.menuButton,
+                            flexDirection: 'row'
+                        }}
+                        onPress= {() => navigation.navigate('SettingScreen')}
+                    >
+                        <Text><Icon name="settings-outline" size={23} color={'black'} /></Text>
+                        <Text style={styles.menuText}>  Settings</Text>
+                    </TouchableOpacity>
+
             </View>
 
         </DrawerContentScrollView>
