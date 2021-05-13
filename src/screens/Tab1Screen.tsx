@@ -2,8 +2,8 @@ import React from 'react'
 import { useEffect } from 'react'
 import { Text, View } from 'react-native'
 import { styles, colors } from '../theme/appTheme';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { TouchableIcon } from '../components/TouchableIcon';
 
 export const Tab1Screen = () => {
     
@@ -23,11 +23,11 @@ export const Tab1Screen = () => {
             </Text>
 
             <Text>
-                <Icon name="airplane-outline" size={80} color={colors.primary} />
-                <Icon name="attach-outline" size={80} color={colors.primary} />
-                <Icon name="bonfire-outline" size={80} color={colors.primary} />
-                <Icon name="calculator-outline" size={80} color={colors.primary} />
-                <Icon name="cloudy-night-outline" size={80} color={colors.primary} />
+                <TouchableIcon iconName="airplane-outline"  />
+                <TouchableIcon iconName="attach-outline"  />
+                <TouchableIcon iconName="bonfire-outline"  />
+                <TouchableIcon iconName="calculator-outline"  />
+                <TouchableIcon iconName="cloudy-night-outline"  />,
             </Text>
         </View>
     )

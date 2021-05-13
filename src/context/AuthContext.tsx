@@ -19,6 +19,9 @@ export const AuthInitialState: AuthState = {
 export interface AuthContextProps {
     authState: AuthState;
     signIn: () => void;
+    logout: () => void;
+    changeFavoriteIcon: (iconName: string) => void;
+    changeUsername: (username: string) => void;
 }
 
 //create the context
@@ -30,13 +33,28 @@ export const AuthProvider = ({ children }: any ) => {
     const [authState, dispatch] = useReducer(AuthReducer, AuthInitialState)
 
     const signIn = () => {
-        dispatch({type: 'signIn'})
+        dispatch({type: 'signIn'});
+    }
+
+    const logout = () => {
+        dispatch({type:'logout'});
+    }
+
+    const changeFavoriteIcon = (iconName: string) => {
+        dispatch( {type: 'changeFavIcon', payload: iconName});
+    }
+
+    const changeUsername = (username: string) => {
+        dispatch( {type: 'changeUsername', payload: username})
     }
 
     return (
         <AuthContext.Provider value = {{
             authState,
-            signIn
+            signIn,
+            logout,
+            changeFavoriteIcon,
+            changeUsername
         }}>
             { children }
         </AuthContext.Provider>
